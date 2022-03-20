@@ -1,6 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 export declare type PageyViewProps = {
-    name: number;
+    numberOfPages: number;
+    currentPage: number;
+    backgroundColor: string;
+    currentPageColor: string;
 };
 declare type PageyViewState = {};
 export default class PageyView extends React.Component<PageyViewProps, PageyViewState> {

@@ -1,17 +1,30 @@
-import { requireNativeViewManager } from 'expo-modules-core';
-import * as React from 'react';
+import { requireNativeViewManager } from "expo-modules-core";
+import * as React from "react";
 
 export type PageyViewProps = {
-  name: number;
+  numberOfPages: number;
+  currentPage: number;
+  backgroundColor: string;
+  currentPageColor: string;
 };
 
-type PageyViewState = {}
+type PageyViewState = {};
 
 const NativeView: React.ComponentType<PageyViewProps> =
-  requireNativeViewManager('Pagey');
+  requireNativeViewManager("Pagey");
 
-export default class PageyView extends React.Component<PageyViewProps, PageyViewState> {
+export default class PageyView extends React.Component<
+  PageyViewProps,
+  PageyViewState
+> {
   render() {
-    return <NativeView name={this.props.name} />;
+    return (
+      <NativeView
+        numberOfPages={this.props.numberOfPages}
+        currentPage={this.props.currentPage}
+        backgroundColor={this.props.backgroundColor}
+        currentPageColor={this.props.currentPageColor}
+      />
+    );
   }
 }

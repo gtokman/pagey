@@ -1,14 +1,11 @@
-import { NativeModulesProxy } from 'expo-modules-core';
+import { NativeModulesProxy } from "expo-modules-core";
 
-import PageyView, { PageyViewProps } from './PageyView'
+import PageyView, { PageyViewProps } from "./PageyView";
 
 const { Pagey } = NativeModulesProxy;
 
-export async function helloAsync(options: Record<string, string>) {
+export async function hello(options: Record<string, string>) {
   return await Pagey.helloAsync(options);
 }
 
-export {
-  PageyView,
-  PageyViewProps
-};
+export { PageyView, PageyViewProps };

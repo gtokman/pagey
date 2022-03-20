@@ -6,6 +6,7 @@ public class PageyModule: Module {
 
     function("helloAsync") { (options: [String: String]) in
       print("Hello 👋")
+      return "Hello 👋"
     }
 
     viewManager {
@@ -13,8 +14,24 @@ public class PageyModule: Module {
         PageyView()
       }
 
-      prop("name") { (view: PageyView, prop: String) in
+      prop("numberOfPages") { (view: PageyView, prop: Int) in
         print(prop)
+        view.conrol.numberOfPages = prop
+      }
+
+      prop("currentPage") { (view: PageyView, prop: Int) in
+        print(prop)
+        view.conrol.currentPage = prop
+      }
+
+      prop("backgroundColor") { (view: PageyView, prop: String) in
+        print(prop)
+        view.conrol.pageIndicatorTintColor = UIColor(hex: prop)
+      }
+
+      prop("currentPageColor") { (view: PageyView, prop: String) in
+        print(prop)
+        view.conrol.currentPageIndicatorTintColor = UIColor(hex: prop)
       }
     }
   }
