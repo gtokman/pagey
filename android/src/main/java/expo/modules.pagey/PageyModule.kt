@@ -9,6 +9,7 @@ class PageyModule : Module() {
 
     function("helloAsync") { options: Map<String, String> ->
       println("Hello 👋")
+      return "Hello 👋"
     }
 
     viewManager {

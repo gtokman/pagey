@@ -1,38 +1,60 @@
 import ExpoModulesCore
+import UIKit
 
 public class PageyModule: Module {
   public func definition() -> ModuleDefinition {
     name("Pagey")
 
     function("helloAsync") { (options: [String: String]) in
-      print("Hello 👋")
+      print("Hello \(options) 👋")
       return "Hello 👋"
     }
 
     viewManager {
       view {
-        PageyView()
+        UIPageControl()
       }
 
-      prop("numberOfPages") { (view: PageyView, prop: Int) in
+      prop("numberOfPages") { (view: UIPageControl, prop: Int) in
         print(prop)
-        view.conrol.numberOfPages = prop
+        view.numberOfPages = prop
       }
 
-      prop("currentPage") { (view: PageyView, prop: Int) in
+      prop("currentPage") { (view: UIPageControl, prop: Int) in
         print(prop)
-        view.conrol.currentPage = prop
+        view.currentPage = prop
       }
 
-      prop("backgroundColor") { (view: PageyView, prop: String) in
+      prop("backgroundColor") { (view: UIPageControl, prop: String) in
         print(prop)
-        view.conrol.pageIndicatorTintColor = UIColor(hex: prop)
+        view.pageIndicatorTintColor = UIColor(hex: prop)
       }
 
-      prop("currentPageColor") { (view: PageyView, prop: String) in
+      prop("currentPageColor") { (view: UIPageControl, prop: String) in
         print(prop)
-        view.conrol.currentPageIndicatorTintColor = UIColor(hex: prop)
+        view.currentPageIndicatorTintColor = UIColor(hex: prop)
       }
     }
+  }
+}
+
+extension UIColor {
+  convenience init(hex: String) {
+    let scanner = Scanner(string: hex)
+    scanner.scanLocation = 0
+    
+    var rgbValue: UInt64 = 0
+    
+    scanner.scanHexInt64(&rgbValue)
+    
+    let r = (rgbValue & 0xff0000) >> 16
+    let g = (rgbValue & 0xff00) >> 8
+    let b = rgbValue & 0xff
+    
+    self.init(
+      red: CGFloat(r) / 0xff,
+      green: CGFloat(g) / 0xff,
+      blue: CGFloat(b) / 0xff, alpha: 1
+    )
   }
 }

@@ -3,7 +3,8 @@ import * as React from "react";
 const NativeView = requireNativeViewManager("Pagey");
 export default class PageyView extends React.Component {
     render() {
-        return (React.createElement(NativeView, { numberOfPages: this.props.numberOfPages, currentPage: this.props.currentPage, backgroundColor: this.props.backgroundColor, currentPageColor: this.props.currentPageColor }));
+        const { numberOfPages, currentPage, backgroundColor, currentPageColor } = this.props;
+        return React.createElement(NativeView, { ...this.props });
     }
 }
 //# sourceMappingURL=PageyView.js.map

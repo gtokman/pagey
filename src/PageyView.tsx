@@ -18,13 +18,8 @@ export default class PageyView extends React.Component<
   PageyViewState
 > {
   render() {
-    return (
-      <NativeView
-        numberOfPages={this.props.numberOfPages}
-        currentPage={this.props.currentPage}
-        backgroundColor={this.props.backgroundColor}
-        currentPageColor={this.props.currentPageColor}
-      />
-    );
+    const { numberOfPages, currentPage, backgroundColor, currentPageColor } =
+      this.props;
+    return <NativeView {...this.props} />;
   }
 }
