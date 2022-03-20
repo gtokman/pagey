@@ -1,0 +1,36 @@
+{
+  "name": "pagey",
+  "version": "0.1.0",
+  "description": "iOS & android native page controls",
+  "main": "build/Pagey.js",
+  "types": "build/Pagey.d.ts",
+  "scripts": {
+    "build": "expo-module build",
+    "clean": "expo-module clean",
+    "lint": "expo-module lint",
+    "test": "expo-module test",
+    "prepare": "expo-module prepare",
+    "prepublishOnly": "expo-module prepublishOnly",
+    "expo-module": "expo-module"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "pagey",
+    "Pagey"
+  ],
+  "repository": "git@github.com:gtokman/pagey.git",
+  "bugs": {
+    "url": "/issues"
+  },
+  "author": "gary tokman",
+  "license": "MIT",
+  "homepage": "#readme",
+  "devDependencies": {
+    "expo-module-scripts": "^2.0.0",
+    "expo-modules-core": "^0.6.5"
+  },
+  "peerDependencies": {
+    "expo": "*"
+  }
+}
